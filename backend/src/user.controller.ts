@@ -1,8 +1,7 @@
-import { Controller, Get, Post, Body, NotFoundException, OnModuleInit } from "@nestjs/common";
+import { Controller, Get, Post, Body, NotFoundException, OnModuleInit } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
-
 
 @Controller('User')
 export class UserController implements OnModuleInit {
@@ -13,7 +12,7 @@ export class UserController implements OnModuleInit {
 
     async onModuleInit() {
         const count = await this.repo.count();
-        if (connt === 0) {
+        if (count === 0) {
             await this.repo.save([
                 { display_name: 'Faeif Yama', secret: '1234' },
                 { display_name: 'Boombim EIF', secret: '4245' },

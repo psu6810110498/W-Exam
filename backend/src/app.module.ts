@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nextjs/typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { UserController } from './user.controller';
 
@@ -7,16 +7,17 @@ import { UserController } from './user.controller';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'db',
+      host: 'db', 
       port: 5432,
       username: 'user',
       password: 'password',
-      database: 'exam_db',
+      database: 'my_db',
       entities: [User],
-      synchronize: true,
+      synchronize: true, 
     }),
     TypeOrmModule.forFeature([User]),
   ],
   controllers: [UserController],
+  providers: [],
 })
-export class AppModule { }
+export class AppModule {}
