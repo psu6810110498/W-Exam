@@ -27,7 +27,7 @@ exports.AppModule = AppModule = __decorate([
                 entities: [user_entity_1.User],
                 synchronize: true,
             }),
-            typeorm_1.TypeOrmModule.forFeature([user]),
+            typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
         ],
         controllers: [user_controller_1.UserController],
     })
