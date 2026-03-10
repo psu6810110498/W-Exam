@@ -11,8 +11,25 @@ services:
       POSTGRES_DB: exam_db
     ports:
       - "5432:5432"
+  backend:
+    build: ./backend
+    ports: 
+      - "3000:3000"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./backend:/usr/src/app
+    environment:
+      - DB_HOST = db
+    command : npm run start:dev
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/usr/src/app
+    command: npm run dev -- --host
 
 volumes:
   postgres_data:
